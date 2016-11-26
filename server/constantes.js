@@ -1,0 +1,1 @@
+export const V1_ROUTE_PREFIX = '/v1';
