@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-watch": "nodemon index.js "
+    "start-watch": "nodemon index.js ",
+    "start":"node index.js"
   },
   "author": "Iago Leonardo Laguna",
   "license": "ISC",
