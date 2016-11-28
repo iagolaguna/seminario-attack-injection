@@ -43,12 +43,12 @@ function register(server, connection) {
         method: 'POST',
         handler: function (request, reply) {
             var password = request.payload.password;
-            var user = request.payload.email;
+            var email = request.payload.email;
             console.log('Receving new User:"' + user + '" and password :"' + password + '"');
             var query = 'SELECT * FROM user WHERE email = ? and password = ?';
             console.log(query);
 
-            connection.query(query,[user,password], function (err, rows) {
+            connection.query(query,[email,password], function (err, rows) {
                 console.log(rows[0]);
                 reply(rows[0]);
             });
