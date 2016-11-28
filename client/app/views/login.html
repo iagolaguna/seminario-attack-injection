@@ -1,6 +1,7 @@
 <form ng-submit="vm.logar()">
     <div style="width:40%;margin:50px auto;">
         <h1 align="center"><span class="fa fa-plus-square"></span> Acessar sua conta:</h1>
+        <input type="checkbox" ng-model="vm.secure" ng-click="vm.changeUrl()" id="check-sql"><label for="check-sql">  Sem SQL Injection</label>
         <div class="fd-form-group">
             <label>E-mail:</label>
             <input type="text" ng-model="vm.usuario.email">
@@ -12,3 +13,21 @@
         <button class="bt fd-blue center">ENTRAR</button>
     </div>
 </form>
+
+ <div class="bg" ng-show="vm.showDialog">
+     <div  ng-class="{'dialog-active':vm.showDialog}" class="dialog">
+         <div id="body-dialog" align="center">
+             <div ng-show="vm.success">
+                <h1>Login correto</h1>
+                <h2>email: {{vm.usuario.email}} | senha: {{vm.usuario.password}}</h2>
+             </div>
+             <div ng-show="vm.catch">
+                 <h1>Login inválido, tente novamente :(</h1>
+             </div>
+         </div>
+         <div id="dialog-container-buttons">
+            <button class="bt fd-blue">Confirmar</button>
+            <button class="bt fd-darkred" ng-click="vm.close()">Cancelar</button>
+         </div>
+     </div>
+</div>

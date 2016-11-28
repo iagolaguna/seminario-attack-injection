@@ -8,5 +8,7 @@ function Router($routeProvider) {
             templateUrl: './app/views/login.html',
             controller:'AppController',
             controllerAs:'vm'
+        })  .when('/', {
+            templateUrl: './app/views/home.html',
         });
 }
