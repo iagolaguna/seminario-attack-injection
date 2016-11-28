@@ -8,11 +8,6 @@ function register(server, connection) {
         method: 'GET',
         handler: function (request, reply) {
             reply('Hello World ' + request.params.user + '!');
-        },
-        config: {
-            description: 'Say hello!',
-            notes: 'The user parameter defaults to \'stranger\' if unspecified',
-            tags: ['api', 'greeting']
         }
     });
 
@@ -23,11 +18,6 @@ function register(server, connection) {
             connection.query('SELECT * FROM user', function (err, rows) {
                 reply(rows);
             });
-        },
-        config: {
-            description: 'Say hello!',
-            notes: 'The user parameter defaults to \'stranger\' if unspecified',
-            tags: ['api', 'greeting']
         }
     });
 
@@ -45,14 +35,27 @@ function register(server, connection) {
                 console.log(rows[0]);
                 reply(rows[0]);
             });
-
-        },
-        config: {
-            description: 'Say hello!',
-            notes: 'The user parameter defaults to \'stranger\' if unspecified',
-            tags: ['api', 'greeting']
         }
     });
+
+        server.route({
+        path: '/user/login/secure',
+        method: 'POST',
+        handler: function (request, reply) {
+            var password = request.payload.password;
+            var user = request.payload.email;
+            console.log('Receving new User:"' + user + '" and password :"' + password + '"');
+            var query = 'SELECT * FROM user WHERE email = ? and password = ?';
+            console.log(query);
+
+            connection.query(query,[user,password], function (err, rows) {
+                console.log(rows[0]);
+                reply(rows[0]);
+            });
+        }
+    });
+
+
     function insertUser() {
         for (var i = 0; i < 50; i++) {
             var name = 'User' + i;
@@ -67,6 +70,4 @@ function register(server, connection) {
         }
     };
     //insertUser();
-
-
 };
