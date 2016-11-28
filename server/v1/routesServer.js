@@ -44,7 +44,7 @@ function register(server, connection) {
         handler: function (request, reply) {
             var password = request.payload.password;
             var email = request.payload.email;
-            console.log('Receving new User:"' + user + '" and password :"' + password + '"');
+            console.log('Receving new User:"' + email + '" and password :"' + password + '"');
             var query = 'SELECT * FROM user WHERE email = ? and password = ?';
             console.log(query);
 
