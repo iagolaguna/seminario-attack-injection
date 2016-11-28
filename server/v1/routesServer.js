@@ -55,6 +55,23 @@ function register(server, connection) {
         }
     });
 
+            server.route({
+        path: '/user/add',
+        method: 'POST',
+        handler: function (request, reply) {
+            var name = request.payload.name;
+            var email = request.payload.email;
+            var password = request.payload.password;
+            console.log('Receving new User:"' + email + '" and password :"' + password + '"and Name :"'+name+"'");
+            var query = 'INSERT INTO user(name,email,password) VALUES ("' + name + '","' + email + '","' + password + '")';
+            console.log(query);
+            connection.query(query, function (err, results) {
+                console.log(err);
+                console.log(results);
+            });        
+        }
+    });
+
 
     function insertUser() {
         for (var i = 0; i < 50; i++) {
