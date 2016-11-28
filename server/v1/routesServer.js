@@ -55,7 +55,7 @@ function register(server, connection) {
         }
     });
 
-            server.route({
+        server.route({
         path: '/user/add',
         method: 'POST',
         handler: function (request, reply) {
