@@ -42,6 +42,7 @@ function register(server, connection) {
             console.log(query);
 
             connection.query(query, function (err, rows) {
+                console.log(rows[0]);
                 reply(rows[0]);
             });
 
