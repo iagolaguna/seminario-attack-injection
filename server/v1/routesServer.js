@@ -69,6 +69,7 @@ function register(server, connection) {
                 console.log(err);
                 console.log(results);
             });        
+            reply.code(200);
         }
     });
 
