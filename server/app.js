@@ -5,7 +5,7 @@ import vision from 'vision';
 import {swagger, swaggerUI} from './swagger';
 import {V1_ROUTE_PREFIX} from './constantes';
 import good from './good';
-import connection from './mysql-connect';
+//import connection from './mysql-connect';
 // Habilitar somente quando for usar MongoDB :)
 //import bunyan from './bunyan';
 import routesServer from './v1/routesServer';
