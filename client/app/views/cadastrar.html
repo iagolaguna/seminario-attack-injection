@@ -1,0 +1,29 @@
+<form ng-submit="vm.cadastrar()">
+    <div style="width:40%;margin:50px auto;">
+        <h1 align="center"><span class="fa fa-plus-square"></span> Cadastrar Usuário:</h1>
+        <div class="fd-form-group">
+            <label>Nome:</label>    
+            <input type="text" ng-model="vm.usuario.name">
+        </div>
+        <div class="fd-form-group">
+            <label>Email:</label>
+            <input type="text" ng-model="vm.usuario.email">
+        </div>
+        <div class="fd-form-group">
+            <label>Senha:</label>
+            <input type="password" ng-model="vm.usuario.password">
+        </div>
+        <button class="btr fd-dark center">CADASTRAR</button>
+    </div>
+</form>
+
+ <div class="bg" ng-show="vm.dialogCadastro">
+     <div  ng-class="{'dialog-active':vm.dialogCadastro}" class="dialog">
+         <div id="body-dialog" align="center">
+                 <h1>Usuário cadastrado com sucesso!</h1>
+         </div>
+         <div id="dialog-container-buttons">
+            <button class="bt fd-darkred" ng-click="vm.close()">OK</button>
+         </div>
+     </div>
+</div>
