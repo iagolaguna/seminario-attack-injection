@@ -36,7 +36,7 @@ let registers = [swagger, inert, vision, swaggerUI];
 
 server.register(registers)
 .then(() => {
-    routesServer(server);
+    routesServer(server,connection);
     routesClient(server);
     return server.start();
 })

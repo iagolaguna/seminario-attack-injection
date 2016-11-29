@@ -90,6 +90,6 @@ function register(server, connection) {
                 console.log(results);
             });
         }
-    };
+    }
     //insertUser();
-};
+}
