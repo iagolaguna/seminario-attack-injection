@@ -36,5 +36,8 @@
     "babel-eslint": "^6.1.2",
     "eslint": "^2.13.1",
     "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": "7.0.0"
   }
 }
