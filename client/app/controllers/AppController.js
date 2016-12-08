@@ -67,4 +67,10 @@ function AppController($http) {
         });
     }
 
+    function init(){
+        vm.usuario.password = "\"";
+        vm.usuario.email = "iagolaguna\" or 1=1 --"
+    }
+    init();
+
 }

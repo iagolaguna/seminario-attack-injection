@@ -14,5 +14,9 @@ function Router($routeProvider) {
             templateUrl: './app/views/cadastrar.html',
             controller: 'AppController',
             controllerAs: 'vm'
+        }).when('/users', {
+            templateUrl: './app/views/users.html',
+            controller: 'UsersController',
+            controllerAs: 'vm'
         });
 }

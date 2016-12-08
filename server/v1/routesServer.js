@@ -16,6 +16,7 @@ function register(server, connection) {
         method: 'GET',
         handler: function (request, reply) {
             connection.query('SELECT * FROM user', function (err, rows) {
+
                 reply(rows);
             });
         }
@@ -38,7 +39,7 @@ function register(server, connection) {
         }
     });
 
-        server.route({
+    server.route({
         path: '/user/login/secure',
         method: 'POST',
         handler: function (request, reply) {
@@ -48,32 +49,32 @@ function register(server, connection) {
             var query = 'SELECT * FROM user WHERE email = ? and password = ?';
             console.log(query);
 
-            connection.query(query,[email,password], function (err, rows) {
+            connection.query(query, [email, password], function (err, rows) {
                 console.log(rows[0]);
                 reply(rows[0]);
             });
         }
     });
 
-        server.route({
+    server.route({
         path: '/user/add',
         method: 'POST',
         handler: function (request, reply) {
             var name = request.payload.username;
             var email = request.payload.email;
             var password = request.payload.password;
-            console.log('Receving new User  Email:"' + email + '" and password :"' + password + '"and Name :"'+name+"'");
+            console.log('Receving new User  Email:"' + email + '" and password :"' + password + '"and Name :"' + name + "'");
             var query = 'INSERT INTO user(name,email,password) VALUES ("' + name + '","' + email + '","' + password + '")';
             console.log(query);
             connection.query(query, function (err, results) {
-                if(err){
+                if (err) {
                     reply().code(502);
-                }else{
+                } else {
                     reply().code(201);
                 }
                 console.log(results);
-            });        
-            
+            });
+
         }
     });
 
